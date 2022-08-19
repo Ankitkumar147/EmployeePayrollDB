@@ -1,0 +1,102 @@
+mysql> CREATE Payroll_ServiceDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Payroll_ServiceDB' at line 1
+mysql> CREATE PayrollServiceDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PayrollServiceDB' at line 1
+mysql> CREATE  database PayrollServiceDB;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> use PayrollServiceDB;
+Database changed
+mysql> create table Employee_payroll
+    -> ID int(5) not null primary key,
+    -> Name varchar(255),
+    -> salary int(15)not null,
+    -> Stary Date varchar(255) not null,
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ID int(5) not null primary key,
+Name varchar(255),
+salary int(15)not null,
+Star' at line 2
+mysql> create table Employee_payroll
+    -> \
+    -> \c
+mysql> create table Employee_payroll(
+    -> ID int(5) not null primary key,
+    -> Name varchar(255),
+    -> salary int(15)not null,
+    -> Start Date varchar(255) not null,
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'varchar(255) not null,
+)' at line 5
+mysql> create table Employee_payroll(
+    -> ID int(5) not null primary key,
+    -> Name varchar(255),
+    -> salary int(15)not null,
+    -> Start Date varchar(255) not null
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'varchar(255) not null
+)' at line 5
+mysql> create table Employee_payroll(
+    -> Name varchar(255),
+    -> salary int(15)not null,
+    -> Start Date varchar(255) not null.
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'varchar(255) not null.
+)' at line 4
+mysql> create table Employee_payroll(
+    -> Name varchar(155) not null,
+    -> salary int(15)not null,
+    -> Start Date varchar(255) not null
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'varchar(255) not null
+)' at line 4
+mysql> create table Employee_payroll(
+    -> Name varchar(255) not null,
+    -> salary int(15)not null,
+    -> Start Date not null
+    -> );
+Query OK, 0 rows affected, 1 warning (0.13 sec)
+
+mysql> desc Employee_Payroll;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| Name   | varchar(255) | NO   |     | NULL    |       |
+| salary | int          | NO   |     | NULL    |       |
+| Start  | date         | NO   |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+3 rows in set (0.05 sec)
+
+mysql> insert into Employee_Payroll values('Ankit',20000,08-03-2022);
+ERROR 1292 (22007): Incorrect date value: '-2017' for column 'Start' at row 1
+mysql> insert into Employee_Payroll values('Ankit',20000,'2022-03-08');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> alter table Employee_Pyroll
+    -> Add ID int(5) not null primary key;
+ERROR 1146 (42S02): Table 'payrollservicedb.employee_pyroll' doesn't exist
+mysql> alter table Employee_Payroll
+    -> Add ID int(5) not null primary key;
+Query OK, 0 rows affected, 1 warning (0.11 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc Employee_Payroll;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| Name   | varchar(255) | NO   |     | NULL    |       |
+| salary | int          | NO   |     | NULL    |       |
+| Start  | date         | NO   |     | NULL    |       |
+| ID     | int          | NO   | PRI | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> Select * from Employee_Payroll;
++-------+--------+------------+----+
+| Name  | salary | Start      | ID |
++-------+--------+------------+----+
+| Ankit |  20000 | 2022-03-08 |  0 |
++-------+--------+------------+----+
+1 row in set (0.04 sec)
+
+mysql>
